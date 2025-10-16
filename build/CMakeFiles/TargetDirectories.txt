@@ -1,0 +1,6 @@
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/benchmark.dir
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/sum_direct.dir
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/sum_vector.dir
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/sum_indirect.dir
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/edit_cache.dir
+/Users/mikko/Documents/csc656/coding-project-#2/sum_harness_instructional/build/CMakeFiles/rebuild_cache.dir

@@ -44,7 +44,9 @@ int main(int argc, char** argv)
 
       // insert your end timer code here, and print out elapsed time for this problem size
 
-      printf(" Sum result = %lf \n",t);
+      // changed format type to lld from lf 
+      // because variable t is type int64_t which corresponds with lld
+      printf(" Sum result = %lld \n",t);
 
    } // end loop over problem sizes
 }

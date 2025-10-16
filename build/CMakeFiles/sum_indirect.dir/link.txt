@@ -1,0 +1,1 @@
+/usr/bin/c++ -O1 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/sum_indirect.dir/sum_indirect.cpp.o CMakeFiles/benchmark.dir/benchmark.cpp.o -o sum_indirect

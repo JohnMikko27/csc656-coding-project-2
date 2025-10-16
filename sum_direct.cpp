@@ -19,6 +19,12 @@ sum(int64_t N, int64_t A[])
 {
    printf(" inside direct_sum perform_sum, N=%lld \n", N);
 
-   return 0;
+   // init return value to 0
+   int64_t sum = 0;
+   for (int i = 0; i < N; i++) {
+      sum += i;
+   }
+
+   return sum;
 }
 
