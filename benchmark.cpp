@@ -46,9 +46,12 @@ int main(int argc, char** argv)
       
       // insert your end timer code here, and print out elapsed time for this problem size
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-      std::chrono::duration<double> elapsed_time = end_time - start_time;
 
-      std::cout << " Elapsed time is : " << elapsed_time.count() << " " << std::endl;
+      // std::chrono::duration<double> elapsed_time = end_time - start_time;
+      // elapsed_time is in nanoseconds
+      std::chrono::nanoseconds elapsed_time = end_time - start_time;
+
+      std::cout << " Elapsed time is : " << elapsed_time.count() << " nanoseconds" << std::endl;
 
       // changed format type to lld from lf 
       // because variable t is type int64_t which corresponds with lld
