@@ -38,11 +38,16 @@ int main(int argc, char** argv)
       setup(n, &A[0]);
 
       // insert your timer code here
-
+      auto start_time = std::chrono::high_resolution_clock::now();
+      
       // invoke method to perform the sum
       t = sum(n, &A[0]);
-
+      
       // insert your end timer code here, and print out elapsed time for this problem size
+      auto end_time = std::chrono::high_resolution_clock::now();
+      auto elapsed_time = end_time - start_time;
+
+      std::cout << " Elapsed time is : " << elapsed_time.count() << " " << std::endl;
 
       // changed format type to lld from lf 
       // because variable t is type int64_t which corresponds with lld
