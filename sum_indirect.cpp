@@ -11,7 +11,7 @@
 void 
 setup(int64_t N, int64_t A[])
 {
-   printf(" inside sum_indirect problem_setup, N=%lld \n", N);
+   // printf(" inside sum_indirect problem_setup, N=%lld \n", N);
 
    // create a random device to seed the random number generator
    std::random_device rd;
@@ -29,7 +29,7 @@ setup(int64_t N, int64_t A[])
 int64_t
 sum(int64_t N, int64_t A[])
 {
-   printf(" inside sum_indirect perform_sum, N=%lld \n", N);
+   // printf(" inside sum_indirect perform_sum, N=%lld \n", N);
 
    int64_t sum = 0;
    int64_t index = A[0];

@@ -11,13 +11,13 @@
 void 
 setup(int64_t N, int64_t A[])
 {
-   printf(" inside direct_sum problem_setup, N=%lld \n", N);
+   // printf(" inside direct_sum problem_setup, N=%lld \n", N);
 }
 
 int64_t
 sum(int64_t N, int64_t A[])
 {
-   printf(" inside direct_sum perform_sum, N=%lld \n", N);
+   // printf(" inside direct_sum perform_sum, N=%lld \n", N);
 
    // init return value to 0
    int64_t sum = 0;

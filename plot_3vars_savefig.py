@@ -19,9 +19,13 @@ Assumptions: developed and tested using Python version 3.8.8 on macOS 11.6
 import pandas as pd
 import matplotlib.pyplot as plt
 
-plot_fname = "myplot.png"
+plot_fname = "mflops_chart"
+# plot_fname = "memory_bandwidth"
+# plot_fname = "memory_latency"
 
-fname = "sample_data_3vars.csv"
+fname = "mflops.csv"
+# fname = "memory_bandwidth.csv"
+# fname = "memory_latency.csv"
 df = pd.read_csv(fname, comment="#")
 print(df)
 

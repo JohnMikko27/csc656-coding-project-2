@@ -45,6 +45,10 @@ int main(int argc, char** argv)
    // accesses = number of program memory accesses
    // Note: normalize latency to nanoseconds
 
+   // what to do:
+   // get mflops for each algorithm sum for each size
+   // then the other ones
+
    /* For each test size */
    for (int64_t n : problem_sizes) 
    {
@@ -71,10 +75,10 @@ int main(int argc, char** argv)
       // changed format type to lld from lf 
       // because variable t is type int64_t which corresponds with lld
 
-      double mflops = 1 * n / float(1000000) / float(elapsed_time.count());
+      double mflops = 1 * n / float(1000000) / elapsed_time.count();
       double memory_latency = float(elapsed_time.count());
       std::cout << "MFLOPS: " << mflops << std::endl;
-      printf(" Sum result = %lld \n",t);
+      // printf(" Sum result = %lld \n",t);
 
    } // end loop over problem sizes
 }
