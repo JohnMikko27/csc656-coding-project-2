@@ -53,8 +53,6 @@ int main(int argc, char** argv)
    for (int64_t n : problem_sizes) 
    {
       int64_t t;
-      printf("Working on problem size N=%lld \n", n);
-
       // invoke user code to set up the problem
       setup(n, &A[0]);
 
@@ -70,14 +68,20 @@ int main(int argc, char** argv)
 
       std::chrono::duration<double> elapsed_time = end_time - start_time;
 
-      std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
+      // std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
 
       // changed format type to lld from lf 
       // because variable t is type int64_t which corresponds with lld
 
-      double mflops = 1 * n / float(1000000) / elapsed_time.count();
-      double memory_latency = float(elapsed_time.count());
-      std::cout << "MFLOPS: " << mflops << std::endl;
+      // double mflops = 1 * n / float(1000000) / elapsed_time.count();
+      // double memory_latency = float(elapsed_time.count());
+      // std::cout << "MFLOPS: " << mflops << std::endl;
+
+      // system theoretical GB/s = 204.8 GB/s
+      double memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
+      // double memory_bandwidth = 8 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
+      std::cout << "memory_bandwidth: " << memory_bandwidth << std::endl;
+
       // printf(" Sum result = %lld \n",t);
 
    } // end loop over problem sizes
