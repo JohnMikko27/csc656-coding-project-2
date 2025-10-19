@@ -43,7 +43,8 @@ code3_time = df[var_names[3]].values.tolist()
 
 plt.figure()
 
-plt.title("Comparison of 3 Sum Algorithms")
+# plt.title("Comparison of 3 Sum Algorithms (MFLOPS)")
+plt.title("Comparison of 3 Sum Algorithms (Memory Bandwidth)")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
@@ -58,7 +59,8 @@ plt.plot(code3_time, "g-^")
 
 plt.xlabel("Problem Sizes")
 # plt.ylabel("runtime")
-plt.ylabel("memory_bandwidth")
+plt.ylabel("Memory Bandwidth (%)")
+# plt.ylabel("MFLOPS")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
 plt.legend(varNames, loc="best")
