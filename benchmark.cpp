@@ -28,6 +28,23 @@ int main(int argc, char** argv)
 
    int n_problems = problem_sizes.size();
 
+   // NOTE HAVE TO CREATE CHARTS OF THE MFLOPS, MEMORY BANDWIDTH, MEMORY LATENCY, NOT RUNTIMES
+
+   // MFLOP/s =  ops/time, where
+   // ops = number of operations/1M
+   // time = runtime(sec)
+   // also check page 51 of lecture 16
+
+   // % of memory bandwidth utilized = (bytes/time) / (capacity), where
+   // bytes = number of memory bytes accessed by your program
+   // time = runtime of your program (secs)
+   // capacity = theoretical peak memory bandwidth of the system
+
+   // Avg memory latency = time/accesses, where
+   // time = runtime(sec) 
+   // accesses = number of program memory accesses
+   // Note: normalize latency to nanoseconds
+
    /* For each test size */
    for (int64_t n : problem_sizes) 
    {
@@ -53,6 +70,10 @@ int main(int argc, char** argv)
 
       // changed format type to lld from lf 
       // because variable t is type int64_t which corresponds with lld
+
+      double mflops = 1 * n / float(1000000) / float(elapsed_time.count());
+      double memory_latency = float(elapsed_time.count());
+      std::cout << "MFLOPS: " << mflops << std::endl;
       printf(" Sum result = %lld \n",t);
 
    } // end loop over problem sizes

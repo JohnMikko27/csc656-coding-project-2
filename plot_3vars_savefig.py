@@ -39,7 +39,7 @@ code3_time = df[var_names[3]].values.tolist()
 
 plt.figure()
 
-plt.title("Comparison of 3 Codes")
+plt.title("Comparison of 3 Sum Algorithms")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
