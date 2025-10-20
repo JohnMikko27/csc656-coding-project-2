@@ -70,18 +70,23 @@ int main(int argc, char** argv)
 
       // std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
 
-      // changed format type to lld from lf 
-      // because variable t is type int64_t which corresponds with lld
+      
 
       // double mflops = 1 * n / float(1000000) / elapsed_time.count();
       // double memory_latency = float(elapsed_time.count());
       // std::cout << "MFLOPS: " << mflops << std::endl;
 
-      // system theoretical GB/s = 204.8 GB/s
-      double memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
+      // NoteL system theoretical GB/s = 204.8 GB/s
+      // double memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
       // double memory_bandwidth = 8 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
-      std::cout << "memory_bandwidth: " << memory_bandwidth << std::endl;
+      // std::cout << "memory_bandwidth: " << memory_bandwidth << std::endl;
 
+      double memory_latency = elapsed_time.count() / 2 / n * 1000000000;
+      std::cout << "memory_latency: " << memory_latency << std::endl;
+      
+
+      // changed format type to lld from lf 
+      // because variable t is type int64_t which corresponds with lld
       // printf(" Sum result = %lld \n",t);
 
    } // end loop over problem sizes

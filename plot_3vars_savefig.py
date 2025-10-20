@@ -20,12 +20,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # plot_fname = "mflops_chart"
-plot_fname = "memory_bandwidth"
-# plot_fname = "memory_latency"
+# plot_fname = "memory_bandwidth"
+plot_fname = "memory_latency"
 
 # fname = "mflops.csv"
-fname = "memory_bandwidth.csv"
-# fname = "memory_latency.csv"
+# fname = "memory_bandwidth.csv"
+fname = "memory_latency.csv"
 df = pd.read_csv(fname, comment="#")
 print(df)
 
@@ -44,7 +44,7 @@ code3_time = df[var_names[3]].values.tolist()
 plt.figure()
 
 # plt.title("Comparison of 3 Sum Algorithms (MFLOPS)")
-plt.title("Comparison of 3 Sum Algorithms (Memory Bandwidth)")
+plt.title("Comparison of 3 Sum Algorithms (Memory Latency)")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
@@ -59,7 +59,7 @@ plt.plot(code3_time, "g-^")
 
 plt.xlabel("Problem Sizes")
 # plt.ylabel("runtime")
-plt.ylabel("Memory Bandwidth (%)")
+plt.ylabel("Memory Latency (ns)")
 # plt.ylabel("MFLOPS")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
