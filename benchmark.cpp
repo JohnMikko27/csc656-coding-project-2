@@ -56,38 +56,38 @@ int main(int argc, char** argv)
       // invoke user code to set up the problem
       setup(n, &A[0]);
 
-      // insert your timer code here
-
       std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
       
       // invoke method to perform the sum
       t = sum(n, &A[0]);
       
-      // insert your end timer code here, and print out elapsed time for this problem size
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
-
+      // get and print elapsed time
       std::chrono::duration<double> elapsed_time = end_time - start_time;
+      std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
 
-      // std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
+      // get and print MFLOPS (ops/time)
+      double mflops = 1 * n / float(1000000) / elapsed_time.count();
+      std::cout << "MFLOPS: " << mflops << std::endl;
 
+      // get and print % of memory bandwidth utilized (bytes/time) / (capacity)
+      // Note: system theoretical GB/s = 204.8 GB/s
+      // ignore memory bandwidth for sum_direct since it doesn't access any memory
+      double sum_vector_memory_bandwidth = 8 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
+      std::cout << "sum_vector_memory_bandwidth: " << sum_vector_memory_bandwidth << std::endl;
+      double sum_indirect_memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
+      std::cout << "sum_indirect_memory_bandwidth: " << sum_indirect_memory_bandwidth << std::endl;
+
+      // ignore memory latency for sum_direct since it doesn't access any memory
+      double sum_vector_memory_latency = elapsed_time.count() / n * 1000000000;
+      std::cout << "sum_vector_memory_latency: " << sum_vector_memory_latency << std::endl;
+      double sum_indirect_memory_latency = elapsed_time.count() / 2 / n * 1000000000;
+      std::cout << "sum_indirect_memory_latency: " << sum_indirect_memory_latency << std::endl;
       
 
-      // double mflops = 1 * n / float(1000000) / elapsed_time.count();
-      // double memory_latency = float(elapsed_time.count());
-      // std::cout << "MFLOPS: " << mflops << std::endl;
-
-      // NoteL system theoretical GB/s = 204.8 GB/s
-      // double memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
-      // double memory_bandwidth = 8 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
-      // std::cout << "memory_bandwidth: " << memory_bandwidth << std::endl;
-
-      double memory_latency = elapsed_time.count() / 2 / n * 1000000000;
-      std::cout << "memory_latency: " << memory_latency << std::endl;
-      
-
-      // changed format type to lld from lf 
-      // because variable t is type int64_t which corresponds with lld
-      // printf(" Sum result = %lld \n",t);
+      // changed format type to ld from lf 
+      // because variable t is type int64_t which corresponds with ld
+      printf(" Sum result = %ld \n",t);
 
    } // end loop over problem sizes
 }
