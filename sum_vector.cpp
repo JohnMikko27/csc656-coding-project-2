@@ -23,6 +23,7 @@ sum(int64_t N, int64_t A[])
 {
    printf(" inside sum_vector perform_sum, N=%ld \n", N);
 
+   // init return value to 0
    int64_t sum = 0;
    for (int i = 0; i < N; i++) {
       sum += A[i];

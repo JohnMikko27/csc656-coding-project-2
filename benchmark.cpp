@@ -28,27 +28,6 @@ int main(int argc, char** argv)
 
    int n_problems = problem_sizes.size();
 
-   // NOTE HAVE TO CREATE CHARTS OF THE MFLOPS, MEMORY BANDWIDTH, MEMORY LATENCY, NOT RUNTIMES
-
-   // MFLOP/s =  ops/time, where
-   // ops = number of operations/1M
-   // time = runtime(sec)
-   // also check page 51 of lecture 16
-
-   // % of memory bandwidth utilized = (bytes/time) / (capacity), where
-   // bytes = number of memory bytes accessed by your program
-   // time = runtime of your program (secs)
-   // capacity = theoretical peak memory bandwidth of the system
-
-   // Avg memory latency = time/accesses, where
-   // time = runtime(sec) 
-   // accesses = number of program memory accesses
-   // Note: normalize latency to nanoseconds
-
-   // what to do:
-   // get mflops for each algorithm sum for each size
-   // then the other ones
-
    /* For each test size */
    for (int64_t n : problem_sizes) 
    {
@@ -56,15 +35,20 @@ int main(int argc, char** argv)
       // invoke user code to set up the problem
       setup(n, &A[0]);
 
+      // get start time of the call to sum
       std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
       
       // invoke method to perform the sum
       t = sum(n, &A[0]);
       
+      // get the end time of the call to sum
       std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
       // get and print elapsed time
       std::chrono::duration<double> elapsed_time = end_time - start_time;
       std::cout << " Elapsed time is : " << elapsed_time.count() << " seconds" << std::endl;
+
+      // NOTE: I calculated the different runtimes in this cpp file and printed them out.
+      // Then I just copy-pasted them into the appropriate .csv files for plotting
 
       // get and print MFLOPS (ops/time)
       double mflops = 1 * n / float(1000000) / elapsed_time.count();

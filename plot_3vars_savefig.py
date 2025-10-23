@@ -19,7 +19,7 @@ Assumptions: developed and tested using Python version 3.8.8 on macOS 11.6
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# choose which plot to create and save by uncommenting the appropriate lines
+# choose which plot to create and save by uncommenting the appropriate lines (plot_fname, fname, title, ylabel)
 plot_fname = "mflops"
 # plot_fname = "memory_bandwidth"
 # plot_fname = "memory_latency"
