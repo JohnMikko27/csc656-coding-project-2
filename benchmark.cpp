@@ -54,15 +54,17 @@ int main(int argc, char** argv)
       double mflops = 1 * n / float(1000000) / elapsed_time.count();
       std::cout << "MFLOPS: " << mflops << std::endl;
 
-      // get and print % of memory bandwidth utilized (bytes/time) / (capacity)
+      // Get and print % of memory bandwidth utilized (bytes/time) / (capacity)
       // Note: system theoretical GB/s = 204.8 GB/s
-      // ignore memory bandwidth for sum_direct since it doesn't access any memory
+      // Ignore memory bandwidth for sum_direct since it doesn't access any memory
+      // Using integer 8 because int64_t is 8 bytes
       double sum_vector_memory_bandwidth = 8 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
       std::cout << "sum_vector_memory_bandwidth: " << sum_vector_memory_bandwidth << std::endl;
       double sum_indirect_memory_bandwidth = 8 * 2 * n / double(1000000000) / elapsed_time.count() / 204.8 * 100;
       std::cout << "sum_indirect_memory_bandwidth: " << sum_indirect_memory_bandwidth << std::endl;
 
-      // ignore memory latency for sum_direct since it doesn't access any memory
+      // Get and print memory latency (time/accesses)
+      // Ignore memory latency for sum_direct since it doesn't access any memory
       double sum_vector_memory_latency = elapsed_time.count() / n * 1000000000;
       std::cout << "sum_vector_memory_latency: " << sum_vector_memory_latency << std::endl;
       double sum_indirect_memory_latency = elapsed_time.count() / 2 / n * 1000000000;
