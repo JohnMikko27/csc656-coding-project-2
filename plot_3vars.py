@@ -19,8 +19,10 @@ Assumptions: developed and tested using Python version 3.8.8 on macOS 11.6
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-fname = "sample_data_3vars.csv"
+# choose which plot to create by uncommenting the appropriate lines (fname, title, ylabel)
+fname = "mflops.csv"
+# fname = "memory_bandwidth.csv"
+# fname = "memory_latency.csv"
 df = pd.read_csv(fname, comment="#")
 print(df)
 
@@ -36,7 +38,9 @@ code1_time = df[var_names[1]].values.tolist()
 code2_time = df[var_names[2]].values.tolist()
 code3_time = df[var_names[3]].values.tolist()
 
-plt.title("Comparison of 3 Codes")
+plt.title("Comparison of 3 Sum Algorithms (MFLOPS)")
+# plt.title("Comparison of 3 Sum Algorithms (Memory Bandwidth)")
+# plt.title("Comparison of 3 Sum Algorithms (Memory Latency)")
 
 xlocs = [i for i in range(len(problem_sizes))]
 
@@ -57,7 +61,10 @@ plt.plot(code3_time, "g-^")
 #plt.yscale("log")
 
 plt.xlabel("Problem Sizes")
-plt.ylabel("runtime")
+# plt.ylabel("runtime")
+plt.ylabel("MFLOPS")
+# plt.ylabel("Memory Bandwidth %")
+# plt.ylabel("Memory Latency (ns)")
 
 varNames = [var_names[1], var_names[2], var_names[3]]
 plt.legend(varNames, loc="best")
